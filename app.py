@@ -102,8 +102,7 @@ number_diagnoses = st.slider(
     "Number of Diagnoses",
     1, 16, 5
 )
-
-)race_options = (
+race_options = (
     df["race"]
     .replace("?", "Unknown")
     .fillna("Unknown")
