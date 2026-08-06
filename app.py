@@ -113,15 +113,33 @@ gender = st.selectbox(
     sorted(df["gender"].astype(str).unique())
 )
 
+a1c_options = (
+    df["A1Cresult"]
+    .fillna("Unknown")
+    .astype(str)
+    .drop_duplicates()
+    .tolist()
+)
+
 A1Cresult = st.selectbox(
     "HbA1c Result",
-    sorted(df["A1Cresult"].astype(str).unique())
+    a1c_options
+)
+
+
+insulin_options = (
+    df["insulin"]
+    .fillna("Unknown")
+    .astype(str)
+    .drop_duplicates()
+    .tolist()
 )
 
 insulin = st.selectbox(
     "Insulin",
-    sorted(df["insulin"].astype(str).unique())
+    insulin_options
 )
+
 
 # =====================================================
 # AI PREDICTION
