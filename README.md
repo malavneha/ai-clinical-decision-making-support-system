@@ -8,7 +8,7 @@ An AI-powered Clinical Decision Support System (CDSS) that predicts whether a di
 
 🔗 Streamlit App: https://YOUR-STREAMLIT-LINK.streamlit.app
 
-🔗 GitHub Repository: https://github.com/YOUR_USERNAME/ai-clinical-decision-making-support-system
+🔗 GitHub Repository: https://github.com/malavneha/ai-clinical-decision-making-support-system
 
 ---
 
