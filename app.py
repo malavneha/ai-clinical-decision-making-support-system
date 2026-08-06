@@ -230,3 +230,171 @@ with tab1:
         preview,
         use_container_width=True
     )
+    # ========================================================
+# PATIENT EXPLORER
+# ========================================================
+
+with tab2:
+
+    st.subheader("👤 Patient Explorer")
+
+    patient_no = st.slider(
+        "Select Patient",
+        0,
+        len(df)-1,
+        0
+    )
+
+    patient = df.iloc[patient_no]
+
+    left,right = st.columns([1,2])
+
+    # -----------------------------
+    # Patient Card
+    # -----------------------------
+
+    with left:
+
+        st.markdown("## 👤 Patient Profile")
+
+        st.info(f"""
+**Patient ID**
+
+{patient_no+1}
+
+**Gender**
+
+{patient['gender']}
+
+**Race**
+
+{patient['race']}
+
+**Age**
+
+{patient['age']}
+""")
+
+        if patient["readmitted"]=="<30":
+
+            st.error("🔴 HIGH RISK")
+
+        elif patient["readmitted"]==">30":
+
+            st.warning("🟠 MEDIUM RISK")
+
+        else:
+
+            st.success("🟢 LOW RISK")
+
+    # -----------------------------
+    # Clinical Information
+    # -----------------------------
+
+    with right:
+
+        st.markdown("## 🏥 Hospital Encounter")
+
+        c1,c2,c3=st.columns(3)
+
+        c1.metric(
+            "Hospital Stay",
+            patient["time_in_hospital"]
+        )
+
+        c2.metric(
+            "Lab Procedures",
+            patient["num_lab_procedures"]
+        )
+
+        c3.metric(
+            "Medications",
+            patient["num_medications"]
+        )
+
+        st.divider()
+
+        c4,c5,c6=st.columns(3)
+
+        c4.metric(
+            "Diagnoses",
+            patient["number_diagnoses"]
+        )
+
+        c5.metric(
+            "Outpatient",
+            patient["number_outpatient"]
+        )
+
+        c6.metric(
+            "Emergency",
+            patient["number_emergency"]
+        )
+
+        st.divider()
+
+        st.subheader("💊 Diabetes Management")
+
+        info=pd.DataFrame({
+
+            "Field":[
+
+                "Diabetes Medication",
+
+                "Insulin",
+
+                "A1C Result",
+
+                "Glucose Serum Test"
+
+            ],
+
+            "Value":[
+
+                patient["diabetesMed"],
+
+                patient["insulin"],
+
+                patient["A1Cresult"],
+
+                patient["max_glu_serum"]
+
+            ]
+
+        })
+
+        st.dataframe(
+            info,
+            use_container_width=True
+        )
+
+        st.subheader("📋 Admission Information")
+
+        admission=pd.DataFrame({
+
+            "Field":[
+
+                "Admission Type",
+
+                "Discharge Disposition",
+
+                "Admission Source"
+
+            ],
+
+            "Value":[
+
+                patient["admission_type_id"],
+
+                patient["discharge_disposition_id"],
+
+                patient["admission_source_id"]
+
+            ]
+
+        })
+
+        st.dataframe(
+            admission,
+            use_container_width=True
+        )
