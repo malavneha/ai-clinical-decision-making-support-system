@@ -122,3 +122,200 @@ insulin = st.selectbox(
     "Insulin",
     sorted(df["insulin"].astype(str).unique())
 )
+
+# =====================================================
+# AI PREDICTION
+# =====================================================
+
+st.divider()
+st.header("🤖 AI Clinical Decision Support")
+
+if st.button("🔍 Predict Readmission Risk", use_container_width=True):
+
+    # Encode categorical inputs using the same mappings
+    age_val = LabelEncoder().fit(df["age"]).transform([age])[0]
+    race_val = LabelEncoder().fit(df["race"].astype(str)).transform([race])[0]
+    gender_val = LabelEncoder().fit(df["gender"].astype(str)).transform([gender])[0]
+    a1c_val = LabelEncoder().fit(df["A1Cresult"].astype(str)).transform([A1Cresult])[0]
+    insulin_val = LabelEncoder().fit(df["insulin"].astype(str)).transform([insulin])[0]
+
+    patient = pd.DataFrame({
+        "age":[age_val],
+        "time_in_hospital":[time_in_hospital],
+        "num_lab_procedures":[num_lab_procedures],
+        "num_procedures":[num_procedures],
+        "num_medications":[num_medications],
+        "number_outpatient":[number_outpatient],
+        "number_emergency":[number_emergency],
+        "number_inpatient":[number_inpatient],
+        "number_diagnoses":[number_diagnoses],
+        "race":[race_val],
+        "gender":[gender_val],
+        "A1Cresult":[a1c_val],
+        "insulin":[insulin_val]
+    })
+
+    prediction = model.predict(patient)[0]
+    probability = model.predict_proba(patient)[0][1]
+
+    st.subheader("📋 AI Assessment")
+
+    if prediction == 1:
+        st.error("🔴 HIGH RISK OF READMISSION")
+    else:
+        st.success("🟢 LOW RISK OF READMISSION")
+
+    st.metric(
+        "Predicted Risk",
+        f"{probability*100:.1f}%"
+    )
+
+    st.progress(float(probability))
+
+    st.divider()
+
+    st.subheader("👩‍⚕️ Clinical Recommendations")
+
+    if prediction == 1:
+
+        st.warning("""
+✔ Schedule follow-up within 7 days
+
+✔ Medication reconciliation
+
+✔ Diabetes education
+
+✔ Review discharge plan
+
+✔ Coordinate outpatient care
+""")
+
+    else:
+
+        st.success("""
+✔ Standard discharge
+
+✔ Routine follow-up
+
+✔ Continue current management
+
+✔ Encourage medication adherence
+""")
+
+# =====================================================
+# EXECUTIVE DASHBOARD
+# =====================================================
+
+st.divider()
+
+st.header("📊 Executive Dashboard")
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric(
+        "👥 Patients",
+        f"{len(df):,}"
+    )
+
+with col2:
+    st.metric(
+        "🏥 Avg Stay",
+        f"{df['time_in_hospital'].mean():.1f} Days"
+    )
+
+with col3:
+    st.metric(
+        "💊 Avg Medications",
+        f"{df['num_medications'].mean():.1f}"
+    )
+
+with col4:
+    rate = (df["readmitted"] == 1).mean() * 100
+
+    st.metric(
+        "📈 Readmission Rate",
+        f"{rate:.2f}%"
+    )
+
+st.divider()
+
+# =====================================================
+# ANALYTICS
+# =====================================================
+
+st.header("📈 Hospital Analytics")
+
+tabA, tabB, tabC = st.tabs([
+    "Readmission",
+    "Hospital Stay",
+    "Demographics"
+])
+
+with tabA:
+
+    st.subheader("Readmission Distribution")
+
+    st.bar_chart(df["readmitted"].value_counts())
+
+with tabB:
+
+    st.subheader("Hospital Stay")
+
+    st.bar_chart(
+        df["time_in_hospital"].value_counts().sort_index()
+    )
+
+with tabC:
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        st.subheader("Gender")
+
+        st.bar_chart(df["gender"].value_counts())
+
+    with col2:
+
+        st.subheader("Race")
+
+        st.bar_chart(df["race"].value_counts())
+
+# =====================================================
+# DOWNLOAD REPORT
+# =====================================================
+
+st.divider()
+
+st.header("📄 Clinical Report")
+
+report = f"""
+AI CLINICAL DECISION SUPPORT SYSTEM
+
+Total Patients : {len(df)}
+
+Average Hospital Stay : {df['time_in_hospital'].mean():.2f}
+
+Average Medications : {df['num_medications'].mean():.2f}
+
+Readmission Rate : {rate:.2f}%
+
+Generated using AI Clinical Decision Support System
+"""
+
+st.download_button(
+    "📥 Download Hospital Summary",
+    report,
+    file_name="Hospital_Report.txt"
+)
+
+# =====================================================
+# FOOTER
+# =====================================================
+
+st.divider()
+
+st.caption(
+    "🏥 AI Clinical Decision Support System | Developed by Dr. Neha Malav"
+)
