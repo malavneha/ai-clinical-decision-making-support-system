@@ -103,9 +103,17 @@ number_diagnoses = st.slider(
     1, 16, 5
 )
 
+)race_options = (
+    df["race"]
+    .replace("?", "Unknown")
+    .fillna("Unknown")
+    .astype(str)
+    .drop_duplicates()
+    .tolist()
+)
 race = st.selectbox(
     "Race",
-    sorted(df["race"].astype(str).unique())
+    race_options
 )
 
 gender = st.selectbox(
