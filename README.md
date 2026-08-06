@@ -146,7 +146,7 @@ The application generates a downloadable report containing:
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-clinical-decision-making-support-system.git
+git clone https://github.com/malavneha/ai-clinical-decision-making-support-system.git
 ```
 
 Install dependencies
@@ -179,10 +179,10 @@ streamlit run app.py
 **Dr. Neha Malav**
 
 GitHub:
-https://github.com/YOUR_USERNAME
+https://github.com/malavneha
 
 LinkedIn:
-(Add LinkedIn Profile)
+(https://www.linkedin.com/in/dr-neha-malav-743a25332?utm_source=share_via&utm_content=profile&utm_medium=member_android)
 
 ---
 
