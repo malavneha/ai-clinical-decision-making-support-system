@@ -130,9 +130,6 @@ The application generates a downloadable report containing:
 
 (Add Screenshot)
 
-### Prediction Page
-
-(Add Screenshot)
 
 ### Dashboard
 
