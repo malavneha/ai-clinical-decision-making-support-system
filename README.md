@@ -144,10 +144,7 @@ The application generates a downloadable report containing:
 ## ▶️ Installation
 
 Clone the repository
-
-```bash
-git clone https://github.com/malavneha/ai-clinical-decision-making-support-system.git
-```
+https://github.com/malavneha/ai-clinical-decision-making-support-system
 
 Install dependencies
 
@@ -182,9 +179,7 @@ GitHub:
 https://github.com/malavneha
 
 LinkedIn:
-(https://www.linkedin.com/in/dr-neha-malav-743a25332?utm_source=share_via&utm_content=profile&utm_medium=member_android)
-
----
+(https://www.linkedin.com/in/dr-neha-malav-743a25332)
 
 ## 📜 License
 
