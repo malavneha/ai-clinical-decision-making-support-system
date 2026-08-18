@@ -134,6 +134,7 @@ The application generates a downloadable report containing:
 ### Dashboard
 
 (Dashboard.jpg)
+https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/Dashboard.jpg
 
 ### Hospital Analytics
 
