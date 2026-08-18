@@ -133,7 +133,7 @@ The application generates a downloadable report containing:
 
 ### Dashboard
 
-(Add Screenshot)
+(Dashboard.jpg)
 
 ### Hospital Analytics
 
