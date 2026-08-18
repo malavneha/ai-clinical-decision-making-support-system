@@ -133,13 +133,15 @@ https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/mai
 
 
 ### Dashboard
-
 (Dashboard.jpg)
+
 https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/Dashboard.jpg
 
 ### Hospital Analytics
 
-(Add Screenshot)
+(hospital analytics .jpg)
+
+https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/hospital%20analytics.jpg
 
 ---
 
