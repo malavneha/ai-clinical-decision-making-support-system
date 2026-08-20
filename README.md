@@ -139,7 +139,7 @@ https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/mai
 
 ### Hospital Analytics
 
-  ![Project Screenshot](hospital analytics .jpg)
+  ![Project Screenshot](hospital analytics.jpg)
 
 https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/hospital%20analytics.jpg
 
