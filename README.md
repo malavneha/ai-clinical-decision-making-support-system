@@ -129,17 +129,17 @@ The application generates a downloadable report containing:
 ### Home Page
 https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/home%20page.jpg
 
-![Project Screenshot](homepage.jpg)
+  ![Project Screenshot](homepage.jpg)
 
 
 ### Dashboard
   ![Project Screenshot](Dashboard.jpg)
 
-https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/Dashboard.jpg
+
 
 ### Hospital Analytics
 
-![Project Screenshot](hospital analytics .jpg)
+  ![Project Screenshot](hospital analytics .jpg)
 
 https://github.com/malavneha/ai-clinical-decision-making-support-system/blob/main/hospital%20analytics.jpg
 
