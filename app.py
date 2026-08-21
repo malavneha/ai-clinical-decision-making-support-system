@@ -14,6 +14,12 @@ st.set_page_config(
 
 st.title("🏥 AI Clinical Decision Support System")
 st.write("Predict whether a diabetic patient is at risk of hospital readmission.")
+st.warning(
+    "Research Prototype — Not for Clinical Use\n\n"
+    "This system is intended for research and educational demonstration. "
+    "It has not been clinically validated and should not replace "
+    "professional clinical judgment."
+)
 
 # Load dataset
 df = pd.read_csv("diabetic_data.csv")
