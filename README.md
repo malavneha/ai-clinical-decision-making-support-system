@@ -165,6 +165,17 @@ streamlit run app.py
 ```
 
 ---
+## Responsible AI" section 
+
+●Human oversight
+AI output is intended to support—not replace—clinical judgment.
+●Privacy
+Do not enter identifiable patient information.
+●Bias
+Model performance may vary across patient populations and should be evaluated across relevant subgroups.
+●Validation
+The system is a research prototype and requires external/clinical validation before real-world deployment.
+---
 
 ## 📈 Future Improvements
 
