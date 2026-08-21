@@ -121,6 +121,42 @@ st.caption(
     "Research evaluation only. Performance on this dataset does not "
     "establish clinical effectiveness or generalizability."
 )
+# ==============================
+# RESPONSIBLE AI & SAFETY
+# ==============================
+
+with st.expander("🛡️ Responsible AI & Safety"):
+
+    st.markdown("### 👩‍⚕️ Human Oversight")
+    st.write(
+        "The AI output is intended to support clinical reasoning and "
+        "should not replace professional clinical judgment."
+    )
+
+    st.markdown("### 🔒 Privacy")
+    st.write(
+        "Do not enter personally identifiable or confidential patient "
+        "information into this research prototype."
+    )
+
+    st.markdown("### ⚖️ Bias & Fairness")
+    st.write(
+        "Model performance may vary across patient populations. "
+        "Evaluation across relevant demographic and clinical subgroups "
+        "is an important area for future work."
+    )
+
+    st.markdown("### 🧪 Validation")
+    st.write(
+        "This system has been evaluated using the available dataset but "
+        "has not undergone prospective or external clinical validation."
+    )
+
+    st.markdown("### 🚫 Clinical Use")
+    st.warning(
+        "Research prototype only. This system is not intended for "
+        "autonomous clinical decision-making or direct patient care."
+    )
 st.header("🩺 Patient Electronic Health Record")
 
 age = st.selectbox(
