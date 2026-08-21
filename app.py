@@ -77,6 +77,50 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 model = RandomForestClassifier(random_state=42)
 model.fit(X_train, y_train)
+# ==============================
+# MODEL EVALUATION
+# ==============================
+
+y_pred = model.predict(X_test)
+y_prob = model.predict_proba(X_test)[:, 1]
+
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred, zero_division=0)
+recall = recall_score(y_test, y_pred, zero_division=0)
+f1 = f1_score(y_test, y_pred, zero_division=0)
+roc_auc = roc_auc_score(y_test, y_prob)
+
+cm = confusion_matrix(y_test, y_pred)
+
+st.header("📊 Model Evaluation")
+
+st.caption(
+    "Evaluation performed on the 20% holdout test set "
+    "using random_state=42."
+)
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("Accuracy", f"{accuracy:.2%}")
+col2.metric("Precision", f"{precision:.2%}")
+col3.metric("Recall", f"{recall:.2%}")
+
+col4, col5 = st.columns(2)
+
+col4.metric("F1-score", f"{f1:.2%}")
+col5.metric("ROC-AUC", f"{roc_auc:.3f}")
+
+st.subheader("Confusion Matrix")
+
+st.dataframe(
+    cm,
+    use_container_width=True
+)
+
+st.caption(
+    "Research evaluation only. Performance on this dataset does not "
+    "establish clinical effectiveness or generalizability."
+)
 st.header("🩺 Patient Electronic Health Record")
 
 age = st.selectbox(
