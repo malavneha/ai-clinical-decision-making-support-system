@@ -2,6 +2,10 @@
 
 An AI-powered Clinical Decision Support System (CDSS) that predicts whether a diabetic patient is at risk of hospital readmission using Machine Learning. The application provides real-time predictions, interactive dashboards, hospital analytics, and downloadable clinical reports.
 
+[Research Prototype — Not for Clinical Use:-
+This system is intended for research and educational demonstration. It has not been clinically validated and should not replace professional clinical judgment.]
+
+
 ---
 What does it do?
 Patient data → AI risk prediction → decision-support information → analytics
