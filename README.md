@@ -5,6 +5,18 @@ An AI-powered Clinical Decision Support System (CDSS) that predicts whether a di
 This system is intended for research and educational demonstration. It has not been clinically validated and should not replace professional clinical judgment.]
 
 ---
+What does it do?
+Patient data → AI risk prediction → decision-support information → analytics
+
+Who is it for?
+Research/clinical-informatics demonstration
+
+Current status?
+Working research prototype
+Try it
+Live Streamlit Demo
+Code
+GitHub
 
 ## 🚀 Live Demo
 🔗 https://ai-clinical-decision-making-support-system-pjs7nfntqcvqfqkjjby.streamlit.app
