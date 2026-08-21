@@ -43,7 +43,14 @@ features = [
     "A1Cresult",
     "insulin"
 ]
-
+# Clean categorical values consistently
+for col in ["race", "gender", "A1Cresult", "insulin"]:
+    df[col] = (
+        df[col]
+        .replace("?", "Unknown")
+        .fillna("Unknown")
+        .astype(str)
+    )
 data = df[features + ["readmitted"]].copy()
 
 # Encode categorical columns
