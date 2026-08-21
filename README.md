@@ -17,6 +17,20 @@ Try it
 Live Streamlit Demo
 Code
 GitHub
+---
+Patient Data
+⬇️
+Data Preprocessing
+⬇️
+Random Forest Model
+⬇️
+Readmission Risk
+⬇️
+Clinical Decision-Support Layer
+⬇️
+Streamlit Interface
+⬇️
+Clinician Review
 
 ## 🚀 Live Demo
 🔗 https://ai-clinical-decision-making-support-system-pjs7nfntqcvqfqkjjby.streamlit.app
